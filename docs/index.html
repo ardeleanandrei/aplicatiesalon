@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <title>Frizerie — Portofoliu & Ghid</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js@5/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js@5/dist/theme/simple.css"
+      id="theme"
+    />
+    <style>
+      :root {
+        --brand: #0ea5e9;
+        --ink: #0f172a;
+        --muted: #475569;
+      }
+      html,
+      body {
+        background: #f8fafc;
+      }
+      .reveal {
+        color: var(--ink);
+        font-size: 26px;
+      }
+      .reveal h1 {
+        font-size: 3em;
+        font-weight: 900;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.08);
+      }
+      .reveal h2 {
+        font-size: 2em;
+      }
+      .reveal h3.muted {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #475569;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-top: 2px solid #e2e8f0;
+        border-bottom: 2px solid #e2e8f0;
+        padding: 0.6rem 0;
+        margin: 1rem auto;
+        display: inline-block;
+      }
+      .reveal .slides section {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .reveal p.muted {
+        font-size: 1rem;
+        color: #334155;
+        background: #f1f5f9;
+        padding: 0.6rem 1rem;
+        border-radius: 12px;
+        display: inline-block;
+        margin-top: 1rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+      .brand-pill {
+        display: inline-block;
+        padding: 0.35rem 0.75rem;
+        border-radius: 9999px;
+        background: var(--brand);
+        color: #fff;
+        font-weight: 700;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .btn {
+        display: inline-block;
+        padding: 0.6rem 1rem;
+        border-radius: 10px;
+        background: var(--brand);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3 {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      img.shadow {
+        border: 6px solid #fff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        border-radius: 12px;
+      }
+      .kpi {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+      .kpi .card {
+        padding: 0.4rem 0.6rem; /* mai puțin padding */
+        border: 1px solid rgba(2, 6, 23, 0.08);
+        border-radius: 10px;
+        background: #fff;
+        min-width: 110px; /* mai mic decât 150px */
+        text-align: center;
+      }
+
+      .kpi .card h3 {
+        font-size: 1.2rem; /* mai mic decât default */
+        margin: 0.2rem 0;
+      }
+
+      .kpi .card p {
+        font-size: 0.75rem; /* subtitlu mic și subtil */
+        margin: 0;
+        color: var(--muted);
+      }
+      .note {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+      .code {
+        font-family: monospace;
+        background: #f1f5f9;
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.35rem;
+      }
+      .steps {
+        counter-reset: step;
+        list-style: none;
+        padding: 0;
+      }
+      .steps li {
+        counter-increment: step;
+        margin: 0.3rem 0;
+      }
+      .steps li::before {
+        content: counter(step) ". ";
+        font-weight: bold;
+        color: var(--brand);
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 0.9em;
+      }
+      th,
+      td {
+        border: 1px solid #e5e7eb;
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+      }
+      th {
+        background: #f1f5f9;
+      }
+
+      .company-logo {
+        max-width: 360px !important; /* ajustează după preferință */
+        height: auto;
+        margin-top: 1rem;
+      }
+
+      .brand-pill {
+        display: inline-block;
+        padding: 0.6rem 1.4rem;
+        border-radius: 50px;
+        background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25);
+        text-transform: uppercase;
+      }
+
+      .slide-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* centrează vertical */
+        align-items: center; /* centrează orizontal */
+        height: 100%; /* ocupă tot slide-ul */
+        text-align: center;
+      }
+
+      .subnote {
+        font-size: 0.8rem;
+        color: #64748b;
+        margin: 0.3rem 0 0 0.5rem;
+      }
+
+      /* Smaller, tighter typography only on slides with .dense */
+      .reveal .slides section.dense {
+        font-size: 22px;
+      } /* was 26px */
+      .reveal .slides section.dense h2 {
+        font-size: 1.6em;
+      }
+      .reveal .slides section.dense ul li {
+        margin: 0.2rem 0 0.1rem;
+        line-height: 1.25;
+      }
+      .reveal .slides section.dense .subnote {
+        font-size: 0.78rem;
+        color: #64748b;
+        margin: 0.25rem 0 0 0.5rem;
+        line-height: 1.25;
+      }
+
+      /* Give more space to the text column on that slide */
+      .reveal .slides section.dense .grid {
+        grid-template-columns: 1.5fr 1fr;
+      }
+
+      /* Keep the “callout” neat on dense slides */
+      .reveal .slides section.dense .callout {
+        font-size: 0.9rem;
+        line-height: 1.35;
+      }
+
+      /* Fix dublă numerotare pentru listele .steps */
+      ol.steps,
+      ol.steps li {
+        list-style: none !important; /* ascunde numerotarea nativă */
+        padding-left: 0; /* scoate indentarea implicită */
+        margin-left: 0;
+      }
+
+      /* Safari/Firefox: ascunde markerul implicit complet */
+      ol.steps li::marker {
+        content: "" !important;
+      }
+
+      /* Numărătoarea personalizată (albastră) */
+      ol.steps {
+        counter-reset: step;
+      }
+      ol.steps li {
+        counter-increment: step;
+        position: relative;
+        padding-left: 0.5rem; /* spațiu mic după număr */
+      }
+      ol.steps li::before {
+        content: counter(step) ". ";
+        font-weight: 700;
+        color: var(--brand);
+        position: static; /* păstrează fluxul textului */
+        margin-right: 0.25rem;
+      }
+
+      /* WhatsApp button: compact + darker hover only */
+      .btn.whatsapp {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background-color: #25d366; /* base WhatsApp green */
+        color: #fff; /* keep text white */
+        font-weight: 700;
+        padding: 0.45rem 0.85rem; /* smaller height */
+        border-radius: 10px;
+        text-decoration: none;
+        transition: background-color 160ms ease; /* only bg changes */
+      }
+
+      .btn.whatsapp:hover,
+      .btn.whatsapp:focus-visible {
+        background-color: #1aa64b; /* darker on hover/focus */
+        color: #fff; /* lock text color */
+      }
+
+      .btn.whatsapp .icon {
+        width: 18px; /* smaller icon */
+        height: 18px;
+        filter: invert(1); /* keep icon white */
+        flex: 0 0 auto;
+      }
+
+      /* optional: remove underline on hover if theme adds it */
+      .btn.whatsapp:hover {
+        text-decoration: none;
+      }
+
+      /* optional: subtle focus ring accessibility */
+      .btn.whatsapp:focus-visible {
+        outline: 0;
+        box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.25);
+      }
+
+      /* optional: respect reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .btn.whatsapp {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- TITLU -->
+        <section>
+          <div class="slide-card">
+            <h1>Nume Salon</h1>
+            <h3 class="muted">
+              Portofoliu • Rezervări • Programări • Recenzii
+            </h3>
+            <p>
+              <span class="brand-pill"
+                >Platformă personalizabilă pentru frizerii & saloane</span
+              >
+            </p>
+            <img
+              class="company-logo"
+              src="./andreitech.png"
+              alt="andreitech logo"
+            />
+            <p class="muted">
+              AndreiTech • andreiccl24@gmail.com • +40752026975
+            </p>
+          </div>
+        </section>
+
+        <!-- PROBLEMA -->
+        <section class="dense">
+          <div class="slide-card">
+            <h3 class="muted">Problema pe care o rezolvăm</h3>
+            <div class="grid">
+              <div>
+                <ul>
+                  <li>
+                    No-show & anulări în ultimul moment → venituri pierdute
+                    <p class="subnote">
+                      Clienți care nu vin sau anulează cu câteva minute înainte
+                      lasă goluri greu de ocupat → pierdere directă de bani.
+                    </p>
+                  </li>
+                  <li>
+                    Programări manuale → conflicte, ferestre goale, stres
+                    <p class="subnote">
+                      Când rezervările se fac pe telefon/WhatsApp/caiet, apar
+                      suprapuneri, goluri și haos în calendar.
+                    </p>
+                  </li>
+                  <li>
+                    Clienții nu văd simplu intervalele disponibile
+                    <p class="subnote">
+                      Trebuie să sune sau să scrie pentru a afla „la ce oră e
+                      liber” → frustrant, mulți renunță.
+                    </p>
+                  </li>
+                  <li>
+                    Comunicare împrăștiată (telefon, WhatsApp, mesaje)
+                    <p class="subnote">
+                      Rezervările vin din mai multe locuri → se pierd
+                      programări, frizerii uită sau dublează sloturi.
+                    </p>
+                  </li>
+                  <li>
+                    Lipsă vizibilitate: ce servicii/ore aduc venit, încărcare pe
+                    frizer
+                    <p class="subnote">
+                      Salonul nu știe ce servicii aduc bani, ce ore sunt cele
+                      mai aglomerate sau care frizer e supraîncărcat.
+                    </p>
+                  </li>
+                </ul>
+
+                <div class="callout">
+                  Impact tipic după implementare: <b>−20–35% no‑show</b>,
+                  <b>+10–25% rezervări</b> datorită rezervării online și
+                  reamintirilor.
+                </div>
+              </div>
+              <div>
+                <img src="probleme.png" alt="probleme frizerie" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SOLUTIE (fără plăți) -->
+        <section class="dense">
+          <div class="slide-card">
+            <h3 class="muted">Soluția Frizerie</h3>
+            <div class="grid">
+              <div>
+                <ul class="tight">
+                  <li>
+                    <b>Pagină publică de rezervări</b> cu selectare serviciu &
+                    frizer
+                  </li>
+                  <li>
+                    <b>Sloturi inteligente</b> + navigare rapidă în calendar
+                  </li>
+                  <li>
+                    <b>Panou administrator</b> pentru servicii, prețuri, durate,
+                    frizeri
+                  </li>
+                  <li>
+                    <b>Autentificare sigură</b> (JWT) & back‑office privat
+                  </li>
+                  <li>
+                    <b>Confirmări & reamintiri</b> (server) +
+                    <b>recenzii</b> după vizită
+                  </li>
+                  <li>
+                    <b>Pagini personale</b> pentru fiecare frizer (link personal
+                    + QR)
+                  </li>
+                </ul>
+                <div class="kpi">
+                  <div class="card">
+                    <h3>−30%</h3>
+                    <p class="muted">no‑show</p>
+                  </div>
+                  <div class="card">
+                    <h3>+22%</h3>
+                    <p class="muted">rezervări/săpt.</p>
+                  </div>
+                  <div class="card">
+                    <h3>&lt;30 min</h3>
+                    <p class="muted">config inițial</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <img src="solutii.png" alt="Soluția Frizerie" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TUR DE PRODUS -->
+        <section>
+          <section class="dense">
+            <div class="slide-card">
+              <h3 class="muted">Tur de produs</h3>
+              <p class="muted">
+                Flux: Client → Rezervare → Confirmare → Calendar staff →
+                Recenzie.
+              </p>
+            </div>
+          </section>
+
+          <section class="dense">
+            <div class="slide-card">
+              <h3 class="muted">Rezervări publice</h3>
+              <ul>
+                <li>
+                  Rute publice: <span class="code">/programeaza-te</span> și
+                  <span class="code">/link-frizer</span>
+                </li>
+                <li>Selectare serviciu → frizer → dată/oră (sloturi valide)</li>
+                <li>Protecție anti‑spam: <b>hCaptcha</b></li>
+              </ul>
+              <img
+                src="rezervaripublic.png"
+                alt="Rezervare publică"
+                style="width: 280px; height: auto"
+              />
+            </div>
+          </section>
+
+          <section class="dense">
+            <div class="slide-card">
+              <h3 class="muted">Calendar pentru personal</h3>
+              <ul>
+                <li>FullCalendar: vizualizare pe resurse (frizeri)</li>
+                <li>Drag‑and‑drop și mutare programare (cu confirmare)</li>
+                <li>Filtrare, navigare pe zile, prevenire suprapuneri</li>
+              </ul>
+              <img
+                src="calendarprogramari.png"
+                alt="Calendar programări"
+                style="width: 600px; height: auto"
+              />
+            </div>
+          </section>
+
+          <section class="dense">
+            <div class="slide-card">
+              <h3 class="muted">Administrare servicii</h3>
+              <ul>
+                <li>CRUD: nume, durată, preț, detalii</li>
+                <li>ID generat cu <span class="code">slugify</span></li>
+                <li>Validări & mesaje de succes</li>
+              </ul>
+
+              <img
+                src="servicii.png"
+                alt="servicii"
+                style="width: 600px; height: auto"
+              />
+            </div>
+          </section>
+
+          <section class="dense">
+            <div class="slide-card">
+              <h3 class="muted">Administrare frizeri</h3>
+              <ul>
+                <li>Adaugă frizer (nume, e‑mail, telefon, rol)</li>
+                <li>Atribuie servicii per frizer</li>
+                <li>Link personal auto‑generat (modificabil)</li>
+              </ul>
+
+              <img
+                src="adaugafrizer.png"
+                alt="Adaugă frizer"
+                style="width: 600px; height: auto"
+              />
+            </div>
+          </section>
+
+          <section class="dense">
+            <div class="slide-card">
+              <h3 class="muted">Clienți & recenzii</h3>
+              <ul>
+                <li>Adaugă clienți cu nume & telefon (validare prefix)</li>
+                <li>Linkuri cu token pentru programare/recenzie</li>
+                <li>Listă recenzii + răspuns din partea frizerului</li>
+              </ul>
+              <img
+                src="lasarecenzie.png"
+                alt="Lasă recenzie"
+                style="width: 300px; height: auto"
+              />
+              <img
+                src="raspunsrecenzie.png"
+                alt="Răspuns recenzie"
+                style="width: 300px; height: auto"
+              />
+            </div>
+          </section>
+        </section>
+
+        <!-- HOW-TO: Adăugare Frizer -->
+        <section class="dense">
+          <div class="slide-card">
+            <h3 class="muted">Cum adaugi un frizer (admin)</h3>
+            <ol class="steps">
+              <li>Deschide <b>Panou Admin → Frizeri</b>.</li>
+              <li>
+                Apasă <b>„Adaugă frizer”</b> și completează: <b>Nume</b>,
+                <b>Email</b>, <b>Telefon</b>, <b>Rol</b>.
+              </li>
+              <li>
+                Selectează <b>serviciile</b> pe care le oferă (tuns, aranjat,
+                etc.).
+              </li>
+              <li>
+                <b>Link personal</b>: se auto‑generează (ex.
+                <span class="code">ion.popescu</span>), îl poți edita. Trebuie
+                să fie unic.
+              </li>
+              <li>
+                Salvează — frizerul apare în listă și poate intra în cont.
+              </li>
+            </ol>
+            <img
+              src="adaugafrizer.png"
+              alt="Adaugă frizer"
+              style="width: 600px; height: auto"
+            />
+          </div>
+        </section>
+
+        <!-- HOW-TO: Poză profil -->
+        <section class="dense">
+          <div class="slide-card">
+            <h3 class="muted">Poză de profil (frizer)</h3>
+            <ol class="steps">
+              <li>Mergi la <b>Contul meu</b> (meniu <b>Utilizator</b>).</li>
+              <li>Alege <b>Încarcă poză</b> → decupează (crop) și confirmă.</li>
+              <li>
+                Back‑end procesează imaginea (rotate, <b>512×512</b>, WebP),
+                curăță metadata și salvează.
+              </li>
+            </ol>
+            <img
+              src="pozaprofil.png"
+              alt="Poză profil"
+              style="width: 600px; height: auto"
+            />
+          </div>
+        </section>
+
+        <!-- HOW-TO: Pagină personală -->
+        <section class="dense">
+          <div class="slide-card">
+            <h3 class="muted">Pagină personală a frizerului</h3>
+            <ul>
+              <li>
+                Fiecare frizer are un <b>link personal</b> (ex.:
+                <span class="code">/ion.popescu</span>) pentru programări
+                directe. Aceasta este pagina lui publică. Link-ul este generat
+                la alegerea frizerului.
+              </li>
+              <li>
+                Linkul este generat manual de Administrator. Nu poate fi
+                duplicat.
+              </li>
+              <li>
+                Public: clientul vede serviciile și disponibilitatea frizerului
+                pentru a face rezervare la el.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- HOW-TO: QR + Card de vizită -->
+        <section class="dense">
+          <div class="slide-card">
+            <h3 class="muted">Cod QR & card de vizită</h3>
+            <ol class="steps">
+              <li>
+                Din <b>Utilizator → Carte de Vizită / QR</b> apasă
+                <b>Generează</b>.
+              </li>
+              <li>
+                În primă fază se generează un cod QR în baza de date, apoi se
+                apasă butonul „Generează” pentru a crea cartea de vizită pe baza
+                acelui cod QR.
+              </li>
+              <li>
+                Serverul creează PNG (512px) către <b>URL‑ul paginii tale</b> și
+                salvează în <span class="code">/uploads/qr/…</span>.
+              </li>
+              <li>
+                Apasă <b>Descarcă Cartea</b>: se generează automat o machetă
+                126×80mm (~300dpi) cu LOGO + Nume Salon, Nume Frizer, telefon,
+                QR cu Logo.
+              </li>
+            </ol>
+
+            <div class="callout">
+              Tip: tipărește cardul pe dimensiunea standard <b>126×80mm</b>.
+              Poți folosi QR pe afișe, Instagram bio, Google Maps profil.
+            </div>
+            <img
+              src="cartedevizita.png"
+              alt="Carte de vizită"
+              style="width: 400px; height: auto"
+            />
+          </div>
+        </section>
+
+        <!-- HOW-TO: Clienți -->
+        <section class="dense">
+          <div class="slide-card">
+            <h3 class="muted">Cum adaugi clienți</h3>
+            <ol class="steps">
+              <li>Mergi la <b>Clienți</b> și apasă <b>Adaugă client</b>.</li>
+              <li>
+                Completează <b>Nume</b> și <b>Telefon</b> (validare 9 cifre,
+                prefix selectabil).
+              </li>
+              <li>
+                Salvează — clientul intră în baza ta și îl poți folosi în
+                programări.
+              </li>
+            </ol>
+            <img
+              src="adaugaclienti.png"
+              alt="Adaugă client"
+              style="width: 600px; height: auto"
+            />
+          </div>
+        </section>
+
+        <!-- HOW-TO: Program de lucru -->
+        <section class="dense">
+          <div class="slide-card">
+            <h3 class="muted">Program de lucru & calendar</h3>
+            <ol class="steps">
+              <li>
+                Din <b>Utilizator → Program</b> setează intervalele pe zile
+                (ex.: 09:00–18:00).
+              </li>
+              <li>
+                Salvează — programul se salvează în baza de date și se afișează
+                în calendarul tău.
+              </li>
+              <li>
+                Calendarul și rezervările verifică programul:
+                <b>în afara programului = respins</b>; zile <b>închise</b> = nu
+                apar sloturi.
+              </li>
+            </ol>
+            <div class="callout">
+              Mesaje server: „<i>Frizerul este închis în acea zi</i>”, „<i
+                >Programarea este în afara programului frizerului</i
+              >”.
+            </div>
+            <img
+              src="programdelucru.png"
+              alt="Program de lucru"
+              style="width: 500px; height: auto"
+            />
+          </div>
+        </section>
+
+        <!-- ARHITECTURA -->
+        <section class="dense">
+          <div class="slide-card">
+            <h3 class="muted">Arhitectură & tehnologii</h3>
+            <div class="grid">
+              <div>
+                <p>
+                  <span class="brand-pill">Frontend (React)</span>
+                </p>
+                <ul class="tight">
+                  <li>CRA + React Router</li>
+                  <li>FullCalendar (timegrid, resources)</li>
+                  <li>hCaptcha pe rutele publice</li>
+                  <li>Upload imagine: <b>FormData</b></li>
+                  <li>QR & Card: Canvas 1004×650px, export PNG</li>
+                </ul>
+              </div>
+              <div>
+                <p>
+                  <span class="brand-pill">Backend (Express + MySQL)</span>
+                </p>
+                <ul class="tight">
+                  <li>Autentificare JWT, rate‑limit, CORS, Helmet</li>
+                  <li>Upload: <b>multer</b> + <b>sharp</b> (WebP 512×512)</li>
+                  <li>QR: <b>qrcode</b> (PNG) • stocat în baza de date.</li>
+                  <li>
+                    Program: Frizerul are un program de lucru (luni–duminică
+                    start/end) + ore de lucru.
+                  </li>
+                  <li>
+                    Mail:
+                    <span class="code">nodemailer</span> (Confirmări Programare,
+                    Anulare, Mutare)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ROADMAP -->
+        <section class="dense">
+          <div class="slide-card">
+            <h3 class="muted">Roadmap</h3>
+            <ul>
+              <li>Șabloane de reamintiri WhatsApp/SMS/e‑mail</li>
+              <li>Exporturi & rapoarte avansate</li>
+              <li>Widget de rezervare integrabil pe site‑ul salonului</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="dense">
+          <div class="slide-card">
+            <h3 class="muted">Hai să lucrăm împreună</h3>
+            <p>Vrei o prezentare live sau funcționalități personalizate?</p>
+            <p>
+              <a
+                class="btn whatsapp"
+                href="https://wa.me/40752026975"
+                target="_blank"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg"
+                  alt="WhatsApp"
+                  class="icon"
+                />
+                WhatsApp
+              </a>
+            </p>
+            <img
+              src="logo.png"
+              alt="Logo AndreiTech"
+              style="width: 100px; height: auto"
+            />
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js@5/plugin/zoom/zoom.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: "c/t",
+        transition: "slide",
+        progress: true,
+        plugins: [RevealNotes, RevealZoom],
+      });
+    </script>
+  </body>
+</html>
